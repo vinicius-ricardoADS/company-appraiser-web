@@ -3,7 +3,7 @@
     top: 0;
     position: fixed;
     background-color: black;
-    height: 125px;
+    height: 100px;
     min-width: 100%;
 }
 
@@ -14,8 +14,7 @@
 }
 
 .img {
-    height: 153px;
-    margin-top: -18px;
+    height: 107px;
 }
 
 .ul {
