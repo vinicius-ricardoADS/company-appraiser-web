@@ -27,6 +27,14 @@
     font-size: 21px;
 }
 
+.li-info {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 21px;
+    color: white;
+    list-style: none;
+}
+
 .h3 {
     
     font-family: 'Roboto', sans-serif;
@@ -41,8 +49,36 @@
     text-decoration: none;
 }
 
+.link-phone {
+    list-style: none;
+    color: white;
+    text-decoration: none;
+    color: gold;
+}
+
 .link:hover {
     color: gold
+}
+
+.dropdown-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dropdown-menu {
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  margin-top: 5px;
+}
+
+.drop-down {
+    background-color: black;
+    color: white;
+    width: 54px;
+    height: 28px;
 }
 
 @media screen and (max-width: 482px) {
@@ -57,6 +93,7 @@
     }
 
     .flex {
-        justify-content: center;
+        justify-content: space-around;
+        align-items: center;
     }
 }
