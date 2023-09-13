@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FormProps } from './form';
+import { FormProps } from '../types/form';
 
 const useForm = () => {
     const [ form, setForm ] = useState<FormProps>({
@@ -17,7 +17,7 @@ const useForm = () => {
     });
 
 
-    return form;
+    return { form, setForm };
 };
 
 export default useForm;

@@ -1,4 +1,4 @@
-import { FormErrorsProps, FormProps, SetFormProps } from "../../../utils/form";
+import { FormErrorsProps, FormProps, SetFormProps } from "../../../types/form";
 
 type FormRegisterProps = {
     onSubmit: React.FormEventHandler<HTMLFormElement>;

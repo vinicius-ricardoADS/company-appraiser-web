@@ -1,4 +1,4 @@
-import { FormErrorsProps, FormProps } from "./form";
+import { FormErrorsProps, FormProps } from "../types/form";
 
 const useHandleChange = (
         event: React.ChangeEvent<HTMLInputElement>,

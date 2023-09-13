@@ -1,4 +1,4 @@
-import { FormErrorsProps, FormProps } from "../../../utils/form";
+import { FormErrorsProps, FormProps } from "../../../types/form";
 
 type FormLoginProps = {
     onSubmit: React.FormEventHandler<HTMLFormElement>;

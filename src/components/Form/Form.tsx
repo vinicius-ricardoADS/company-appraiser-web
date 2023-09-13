@@ -2,20 +2,10 @@ import classes from './Form.module.css';
 import { CheckIcon } from 'lucide-react';
 
 import React, {useState} from 'react';
-import { FormErrorsProps, FormProps, SetFormProps } from '../../utils/form';
+import { FormErrorsProps, PropsFormLoginOrRegister } from '../../types/form';
 import FormRegister from './FormRegister/FormRegister';
 import FormLogin from './FormLogin/FormLogin';
-
-type PropsFormLoginOrRegister = {
-    isRegister: boolean;
-    onSubmit: React.FormEventHandler<HTMLFormElement>;
-    onChange: React.ChangeEventHandler<HTMLInputElement>;
-    form: FormProps;
-    errors: FormErrorsProps;
-    setForm: React.Dispatch<React.SetStateAction<SetFormProps>>
-    setIsRegister: React.Dispatch<React.SetStateAction<boolean>>;
-    setRecoverPassword: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import useForm from '../../utils/useForm';
 
 const FormLoginOrRegister = (
     { isRegister, 
@@ -60,19 +50,7 @@ const Form = () => {
 
     const [recoverPassword, setRecoverPassword] = useState(false);
 
-    const [form, setForm] = useState<FormProps>({
-        email: '',
-        emailRegister: '',
-        nameRegister: '',
-        passwordRegister: '',
-        password: '',
-        ckPassword: '',
-        date_birth: '',
-        profession: '',
-        country: '',
-        city: '',
-        selected: 'Relacionamento'
-    });
+    const { form, setForm } = useForm();
 
     const [isRegister, setIsRegister] = useState(false);
 

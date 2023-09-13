@@ -39,3 +39,14 @@ export interface SetFormProps {
     city: string;
     selected: string;
 }
+
+export interface PropsFormLoginOrRegister {
+    isRegister: boolean;
+    onSubmit: React.FormEventHandler<HTMLFormElement>;
+    onChange: React.ChangeEventHandler<HTMLInputElement>;
+    form: FormProps;
+    errors: FormErrorsProps;
+    setForm: React.Dispatch<React.SetStateAction<SetFormProps>>
+    setIsRegister: React.Dispatch<React.SetStateAction<boolean>>;
+    setRecoverPassword: React.Dispatch<React.SetStateAction<boolean>>;
+}
