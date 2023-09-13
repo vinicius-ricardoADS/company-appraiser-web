@@ -1,9 +1,9 @@
 .description {
-    color: white;
+    color: gold;
     font-family: Inter;
     font-size: 32px;
     font-style: normal;
-    font-weight: 900;
+    font-weight: bold;
     line-height: normal;
 }
 
@@ -11,9 +11,7 @@
     width: 800px;
     height: 598px;
     border-radius: 16px;
-    background: linear-gradient(195.22deg, rgba(20, 20, 20, 0) 7.46%, #141414 69.4%);
     margin-right: 32px;
-    opacity: 0.8;
 }
 
 .container-img {

@@ -7,7 +7,7 @@ const Card = () => {
             <img src={presentation} className={classes.img} alt="Group friends" />
             <div className={classes.middle}>
                 <p className={classes.description}>
-                    Conecta-se aos seus amigos e familiares usando recados e mensagens instantâneas
+                    Sua avaliação que importa para ter seu produto melhor e mais barato
                 </p>
             </div>
         </div>
