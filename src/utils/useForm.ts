@@ -8,12 +8,10 @@ const useForm = () => {
         nameRegister: '',
         passwordRegister: '',
         password: '',
+        cpfRegister: '',
         ckPassword: '',
         date_birth: '',
-        profession: '',
-        country: '',
-        city: '',
-        selected: 'Relacionamento'
+        selected: 'Relacionamento',
     });
 
 

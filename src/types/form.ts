@@ -6,9 +6,7 @@ export interface FormProps {
     password: string;
     ckPassword: string;
     date_birth: string;
-    profession: string;
-    country: string;
-    city: string;
+    cpfRegister: string;
     selected: string;
 }
 
@@ -19,9 +17,7 @@ export interface FormErrorsProps {
     invalidPassword: boolean;
     invalidPasswordRegister: boolean;
     invalidDateRegister: boolean;
-    invalidProfession: boolean;
-    invalidCountry: boolean;
-    invalidCity: boolean;
+    invalidCpfRegister: boolean;
     invalidNameRegister: boolean;
     invalidRelationship: boolean;
 }
@@ -34,9 +30,7 @@ export interface SetFormProps {
     password: string;
     ckPassword: string;
     date_birth: string;
-    profession: string;
-    country: string;
-    city: string;
+    cpfRegister: string;
     selected: string;
 }
 
@@ -46,6 +40,7 @@ export interface PropsFormLoginOrRegister {
     onChange: React.ChangeEventHandler<HTMLInputElement>;
     form: FormProps;
     errors: FormErrorsProps;
+    classes?: CSSModuleClasses;
     setForm: React.Dispatch<React.SetStateAction<SetFormProps>>
     setIsRegister: React.Dispatch<React.SetStateAction<boolean>>;
     setRecoverPassword: React.Dispatch<React.SetStateAction<boolean>>;

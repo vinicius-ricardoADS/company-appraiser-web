@@ -24,7 +24,9 @@ const FormLoginOrRegister = (
                     onSubmit={onSubmit}
                     onChange={onChange}
                     classes={classes}
+                    isRegister={isRegister}
                     errors={errors}
+                    setRecoverPassword={setRecoverPassword}
                     form={form}
                     setForm={setForm}
                     setIsRegister={setIsRegister}
@@ -61,9 +63,7 @@ const Form = () => {
         invalidPassword: false,
         invalidPasswordRegister: false,
         invalidDateRegister: false,
-        invalidProfession: false,
-        invalidCountry: false,
-        invalidCity: false,
+        invalidCpfRegister: false,
         invalidNameRegister: false,
         invalidRelationship: false,
     })
@@ -90,28 +90,14 @@ const Form = () => {
                 }));
             }
             
-            if (name === 'profession') {
-                setErrors((prevFormErros) => ({
-                    ...prevFormErros,
-                    invalidProfession: false,
-                }));
-            }
-            
-            if (name === 'country') {
-                setErrors((prevFormErros) => ({
-                    ...prevFormErros,
-                    invalidCountry: false,
-                }));
-            }
-
-            if (name === 'city') {
-                setErrors((prevFormErros) => ({
-                    ...prevFormErros,
-                    invalidCity: false,
-                }));
-            }
-
             if (name === 'nameRegister') {
+                setErrors((prevFormErros) => ({
+                    ...prevFormErros,
+                    invalidNameRegister: false,
+                }));
+            }
+
+            if (name === 'cpfRegister') {
                 setErrors((prevFormErros) => ({
                     ...prevFormErros,
                     invalidNameRegister: false,
@@ -169,8 +155,7 @@ const Form = () => {
         event.preventDefault();
         if (isRegister) {
             if (form.emailRegister.trim() === '' && form.passwordRegister.trim() === '' && form.date_birth.trim() === ''
-            && form.profession.trim() === '' && form.country.trim() === '' && form.city.trim() === '' &&
-                form.selected === 'Relacionamento' && form.nameRegister.trim() === '') {
+            && form.cpfRegister.trim() === '' && form.selected === 'Relacionamento' && form.nameRegister.trim() === '') {
                 setErrors({
                     invalidEmail: false,
                     invalidEmailRegister: true,
@@ -178,9 +163,7 @@ const Form = () => {
                     invalidFormatEmail: false,
                     invalidPasswordRegister: true,
                     invalidDateRegister: true,
-                    invalidProfession: true,
-                    invalidCountry: true,
-                    invalidCity: true,
+                    invalidCpfRegister: true,
                     invalidRelationship: true,
                     invalidNameRegister: true,
                 });
