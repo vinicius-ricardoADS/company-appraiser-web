@@ -49,7 +49,7 @@ const FormRegister = ({
                         <div className={classes!['label-float']}>
                             <input onChange={onChange} name='nameRegister' 
                                 value={form.nameRegister} className={errors.invalidNameRegister ? classes!['invalid-input'] : classes!['input-register']}
-                                type="password" placeholder="Nome Completo"/>
+                                type="text" placeholder="Nome Completo"/>
                         </div>
                     </div>
                     <div className={classes!['flex-button-register']}>

@@ -1,11 +1,21 @@
 import classes from './Form.module.css';
 import { CheckIcon } from 'lucide-react';
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import Cookies from 'js-cookie';
+import axios from 'axios';
 import { FormErrorsProps, PropsFormLoginOrRegister } from '../../types/form';
 import FormRegister from './FormRegister/FormRegister';
 import FormLogin from './FormLogin/FormLogin';
 import useForm from '../../utils/useForm';
+import { User } from '../../types/User';
+import { ResponseHttpLogin } from '../../types/responseLogin';
+import { useNavigate } from 'react-router-dom';
+
+type BodyFormLogin = {
+    email: string;
+    password: string;
+}
 
 const FormLoginOrRegister = (
     { isRegister, 
@@ -49,6 +59,8 @@ const FormLoginOrRegister = (
 const Form = () => {
 
     const [modal, setModal] = useState('none');
+
+    const navigate = useNavigate();
 
     const [recoverPassword, setRecoverPassword] = useState(false);
 
@@ -179,26 +191,54 @@ const Form = () => {
             }
 
             console.log(form);
-        }
-        
-        if (form.email.trim() === '' && form.password.trim() === '') {
-            setErrors((prevState) => ({
-                ...prevState,
-                invalidEmail: true,
-                invalidPassowrd: true,
-            }));
-            return;
-        }
 
-        if (validateFormatEmail()) {
-            setErrors((prevState) => ({
-                ...prevState,
-                invalidFormatEmail: true,
-            }));
-            return;
-        }
+            const body : User = {
+                email: form.emailRegister,
+                password: form.passwordRegister,
+                birth_date: form.date_birth,
+                cpf: form.cpfRegister,
+                name: form.nameRegister
+            }
+    
+            const response = await axios.post('http://localhost:3333/users', body);
 
-        console.log(form);
+            console.log(response);
+        } else {
+
+            if (form.email.trim() === '' && form.password.trim() === '') {
+                setErrors((prevState) => ({
+                    ...prevState,
+                    invalidEmail: true,
+                    invalidPassowrd: true,
+                }));
+                return;
+            }
+
+            if (validateFormatEmail()) {
+                setErrors((prevState) => ({
+                    ...prevState,
+                    invalidFormatEmail: true,
+                }));
+                return;
+            }
+
+            const body: BodyFormLogin = {
+                email: form.email,
+                password: form.password
+            }
+
+            console.log(body);
+
+            const response = await axios.post('http://localhost:3333/register', body);
+
+            if (response.status === 200) {
+                const { token }: ResponseHttpLogin = response.data;
+
+                Cookies.set('token', token);
+                
+                navigate('/evaluations');
+            }
+        }
     }
 
     return (
