@@ -1,5 +1,7 @@
+import Header from "../../components/Header/Header"
+
 const Evaluation = () => {
-    return <h1>Ola</h1>
+    return <Header />
 };
 
 export default Evaluation;

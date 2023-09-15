@@ -1,31 +1,93 @@
 import { useState, useEffect } from 'react';
 import { AlignJustify } from 'lucide-react';
+import Cookies from 'js-cookie';
+import jwtDecode from 'jwt-decode';
 import brand from '../../assets/brand.ico';
 import classes from './Header.module.css';
+import axios from 'axios';
+import { User } from '../../types/User';
 
-const Header = () => {
-    const [windowSize, setWindowSize] = useState(false);
+type JwtDecodeEmail = {
+    email: string
+}
 
-    const [isOpen, setIsOpen] = useState(false);
+type HeaderLoginProps = {
+    windowSize: boolean;
+    isOpen: boolean;
+    toggleDropdown: () => void;
+}
 
-    const toggleDropdown = () => {
-        setIsOpen(!isOpen);
-    };
+type HeaderUserOrAdminProps = {
+    user: User;
+}
 
-    const handleResize = () => {
-        setWindowSize(window.innerWidth <= 360);
-    };
+const HeaderUser = () => {
+    return (
+        <>
+            <header className={classes.header}>
+                <div className={classes.flex}>
+                    <div className={classes.flex}>
+                        <img src={brand} alt='' className={classes.img} />
+                        <h3 className={classes.h3}>Company Appraiser</h3>
+                    </div>
+                    <ul className={classes.ul}>
+                        <li className={classes.li}>
+                            <a className={classes.link} href='#'>
+                                Sair
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+        </>
+    )
+};
 
+const HeaderAdmin = () => {
+    return (
+        <>
+            <header className={classes.header}>
+                <div className={classes.flex}>
+                    <div className={classes.flex}>
+                        <img src={brand} alt='' className={classes.img} />
+                        <h3 className={classes.h3}>Company Appraiser</h3>
+                    </div>
+                    <ul className={classes.ul}>
+                        <li className={classes.li}>
+                            <a className={classes.link} href='#'>
+                                Usuários
+                            </a>
+                        </li>
+                        <li className={classes.li}>
+                            <a className={classes.link} href='#'>
+                                Relatórios
+                            </a>
+                        </li>
+                        <li className={classes.li}>
+                            <a className={classes.link} href='#'>
+                                Empresas
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+        </>
+    )
+};
 
-    useEffect(() => {
-        window.addEventListener('resize', handleResize);
-        handleResize();
-    
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    });
-    
+const HeaderUserOrAdmin = ({ user }: HeaderUserOrAdminProps) => {
+    return (
+        <>
+            {user?.role?.toString() === 'USER' ? (
+                <HeaderUser />
+            ) : (
+                <HeaderAdmin />
+            )}
+        </>
+    )
+}
+
+const HeaderLogin = ({ windowSize, isOpen, toggleDropdown }: HeaderLoginProps) => {
     return (
         <>
             {windowSize ? (
@@ -67,6 +129,63 @@ const Header = () => {
                         </ul>
                     </div>
                 </header>
+            )}
+        </>
+    )
+};
+
+const Header = () => {
+    const [windowSize, setWindowSize] = useState(false);
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const [user, setUser] = useState<User>();
+
+    const token = Cookies.get('token');
+
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+    };
+
+    const handleResize = () => {
+        setWindowSize(window.innerWidth <= 360);
+    };
+
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        handleResize();
+
+        if (token) {
+            const decodeToken: JwtDecodeEmail = jwtDecode(token);
+
+            const fetchUser = async () => {
+                await axios.get(`http://localhost:3333/users/${decodeToken.email}`).then((res) => {
+                    const { user }: HeaderUserOrAdminProps = res.data; 
+                    setUser(user);
+                })
+            }
+
+            fetchUser();
+        }
+    
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [token]);
+    
+    return (
+        <>
+            {token ? (
+                <HeaderUserOrAdmin
+                    user={user!}
+                />
+            ) : (
+                <HeaderLogin
+                    windowSize={windowSize}
+                    isOpen={isOpen}
+                    toggleDropdown={toggleDropdown}
+                />
             )}
         </>
     )

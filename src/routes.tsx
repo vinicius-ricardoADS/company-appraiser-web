@@ -12,7 +12,7 @@ import Evaluation from './pages/Evaluation/Evaluation';
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route>
-            <Route path='/' element={<Home/>}/>
+            <Route path='/' element={isAuthenticated() ? <Evaluation /> : <Home />}/>
             <Route path='/evaluations' element={isAuthenticated() ? <Evaluation /> : <Navigate to='/' />} />
         </Route>
     )

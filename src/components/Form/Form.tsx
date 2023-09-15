@@ -190,8 +190,6 @@ const Form = () => {
                 return;
             }
 
-            console.log(form);
-
             const body : User = {
                 email: form.emailRegister,
                 password: form.passwordRegister,
@@ -202,7 +200,7 @@ const Form = () => {
     
             const response = await axios.post('http://localhost:3333/users', body);
 
-            console.log(response);
+            if (response.status === 200) setIsRegister(false);
         } else {
 
             if (form.email.trim() === '' && form.password.trim() === '') {
@@ -227,8 +225,6 @@ const Form = () => {
                 password: form.password
             }
 
-            console.log(body);
-
             const response = await axios.post('http://localhost:3333/register', body);
 
             if (response.status === 200) {
@@ -237,6 +233,8 @@ const Form = () => {
                 Cookies.set('token', token);
                 
                 navigate('/evaluations');
+
+                window.location.reload();
             }
         }
     }
