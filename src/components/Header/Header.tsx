@@ -11,7 +11,7 @@ type JwtDecodeEmail = {
     email: string
 }
 
-type HeaderLoginProps = {
+type HeaderResponsiveProps = {
     windowSize: boolean;
     isOpen: boolean;
     toggleDropdown: () => void;
@@ -19,6 +19,7 @@ type HeaderLoginProps = {
 
 type HeaderUserOrAdminProps = {
     user: User;
+    props: HeaderResponsiveProps;
 }
 
 const HeaderUser = () => {
@@ -43,51 +44,90 @@ const HeaderUser = () => {
     )
 };
 
-const HeaderAdmin = () => {
+const HeaderAdmin = ({ windowSize, isOpen, toggleDropdown }: HeaderResponsiveProps) => {
     return (
         <>
-            <header className={classes.header}>
-                <div className={classes.flex}>
+            {windowSize ? (
+                <header className={classes.header}>
                     <div className={classes.flex}>
-                        <img src={brand} alt='' className={classes.img} />
-                        <h3 className={classes.h3}>Company Appraiser</h3>
+                        <div className={classes.flex}>
+                            <img src={brand} alt='' className={classes.img} />
+                            <h3 className={classes.h3}>Company Appraiser</h3>
+                        </div>
+                        <div className={classes['dropdown-container']}>
+                            <button className={classes['dropdown-button']} onClick={toggleDropdown}>
+                                <AlignJustify className={classes['drop-down']} />
+                            </button>
+                            {isOpen && (
+                                <ul className={classes['dropdown-menu-flex']}>
+                                    <li className={classes.li}>
+                                        <a className={classes['link-phone']} href='#'>
+                                            Usuários
+                                        </a>
+                                    </li>
+                                    <li className={classes.li}>
+                                        <a className={classes['link-phone']} href='#'>
+                                            Relatórios
+                                        </a>
+                                    </li>
+                                    <li className={classes.li}>
+                                        <a className={classes['link-phone']} href='#'>
+                                            Empresas
+                                        </a>
+                                    </li>
+                                </ul>
+                            )}
+                        </div>
                     </div>
-                    <ul className={classes.ul}>
-                        <li className={classes.li}>
-                            <a className={classes.link} href='#'>
-                                Usuários
-                            </a>
-                        </li>
-                        <li className={classes.li}>
-                            <a className={classes.link} href='#'>
-                                Relatórios
-                            </a>
-                        </li>
-                        <li className={classes.li}>
-                            <a className={classes.link} href='#'>
-                                Empresas
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </header>
+                </header>
+            ) : (
+                <header className={classes.header}>
+                    <div className={classes.flex}>
+                        <div className={classes.flex}>
+                            <img src={brand} alt='' className={classes.img} />
+                            <h3 className={classes.h3}>Company Appraiser</h3>
+                        </div>
+                        <ul className={classes['ul-flex']}>
+                            <li className={classes.li}>
+                                <a className={classes['link-flex']} href='#'>
+                                    Usuários
+                                </a>
+                            </li>
+                            <li className={classes.li}>
+                                <a className={classes['link-flex']} href='#'>
+                                    Relatórios
+                                </a>
+                            </li>
+                            <li className={classes.li}>
+                                <a className={classes['link-flex']} href='#'>
+                                    Empresas
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </header>
+            )}
         </>
     )
 };
 
-const HeaderUserOrAdmin = ({ user }: HeaderUserOrAdminProps) => {
+const HeaderUserOrAdmin = ({ user, props }: HeaderUserOrAdminProps) => {
     return (
         <>
-            {user?.role?.toString() === 'USER' ? (
+            {user?.role?.toString() === 'ADMIN' ? (
                 <HeaderUser />
             ) : (
-                <HeaderAdmin />
+                <HeaderAdmin
+                    windowSize={props.windowSize}
+                    isOpen={props.isOpen}
+                    toggleDropdown={props.toggleDropdown} 
+                />
             )}
         </>
     )
 }
 
-const HeaderLogin = ({ windowSize, isOpen, toggleDropdown }: HeaderLoginProps) => {
+const HeaderLogin = ({ windowSize, isOpen, toggleDropdown }: HeaderResponsiveProps) => {
     return (
         <>
             {windowSize ? (
@@ -151,6 +191,11 @@ const Header = () => {
         setWindowSize(window.innerWidth <= 360);
     };
 
+    const propsResponsive: HeaderResponsiveProps = {
+        windowSize,
+        isOpen,
+        toggleDropdown
+    }
 
     useEffect(() => {
         window.addEventListener('resize', handleResize);
@@ -160,10 +205,7 @@ const Header = () => {
             const decodeToken: JwtDecodeEmail = jwtDecode(token);
 
             const fetchUser = async () => {
-                await axios.get(`http://localhost:3333/users/${decodeToken.email}`).then((res) => {
-                    const { user }: HeaderUserOrAdminProps = res.data; 
-                    setUser(user);
-                })
+                await axios.get(`http://localhost:3333/users/${decodeToken.email}`).then((res) => setUser(res.data))
             }
 
             fetchUser();
@@ -178,6 +220,7 @@ const Header = () => {
         <>
             {token ? (
                 <HeaderUserOrAdmin
+                    props={propsResponsive}
                     user={user!}
                 />
             ) : (

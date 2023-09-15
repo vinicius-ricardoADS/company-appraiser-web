@@ -21,6 +21,12 @@
     list-style: none;
 }
 
+.ul-flex {
+    list-style: none;
+    display: flex;
+    margin: 4px;
+}
+
 .li {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
@@ -49,15 +55,34 @@
     text-decoration: none;
 }
 
+.link-flex {
+    list-style: none;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+}
+
+.link-flex-responsive {
+    list-style: none;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+}
+
 .link-phone {
     list-style: none;
     color: white;
+    padding: 3px;
     text-decoration: none;
     color: gold;
 }
 
 .link:hover {
     color: gold
+}
+
+.link-flex:hover {
+    color: gold;
 }
 
 .dropdown-container {
@@ -70,6 +95,16 @@
 .dropdown-menu {
   list-style: none;
   position: absolute;
+  top: 100%;
+  margin-top: 5px;
+}
+
+.dropdown-menu-flex {
+  list-style: none;
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  align-items: center;
   top: 100%;
   margin-top: 5px;
 }
