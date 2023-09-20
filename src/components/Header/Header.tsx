@@ -75,6 +75,11 @@ const HeaderAdmin = ({ windowSize, isOpen, toggleDropdown }: HeaderResponsivePro
                                             Empresas
                                         </a>
                                     </li>
+                                    <li className={classes.li}>
+                                        <a className={classes['link-phone']} href='#'>
+                                            Produtos
+                                        </a>
+                                    </li>
                                 </ul>
                             )}
                         </div>
@@ -103,6 +108,11 @@ const HeaderAdmin = ({ windowSize, isOpen, toggleDropdown }: HeaderResponsivePro
                                     Empresas
                                 </a>
                             </li>
+                            <li className={classes.li}>
+                                <a className={classes['link-flex']} href='/products'>
+                                    Produtos
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </header>
@@ -114,7 +124,7 @@ const HeaderAdmin = ({ windowSize, isOpen, toggleDropdown }: HeaderResponsivePro
 const HeaderUserOrAdmin = ({ user, props }: HeaderUserOrAdminProps) => {
     return (
         <>
-            {user?.role?.toString() === 'ADMIN' ? (
+            {user?.role?.toString() === 'USER' ? (
                 <HeaderUser />
             ) : (
                 <HeaderAdmin

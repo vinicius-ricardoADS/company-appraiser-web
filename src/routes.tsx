@@ -8,12 +8,14 @@ import {
 import Home from './pages/Home/Home';
 import { isAuthenticated } from './utils/auth';
 import Evaluation from './pages/Evaluation/Evaluation';
+import Products from './pages/Products/Products';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route>
             <Route path='/' element={isAuthenticated() ? <Evaluation /> : <Home />}/>
             <Route path='/evaluations' element={isAuthenticated() ? <Evaluation /> : <Navigate to='/' />} />
+            <Route path='/products' element={isAuthenticated() ? <Products /> : <Navigate to='/' />} />
         </Route>
     )
 );
