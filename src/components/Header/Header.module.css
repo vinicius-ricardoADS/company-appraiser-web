@@ -62,6 +62,13 @@
     text-decoration: none;
 }
 
+.link-flex-mark {
+    list-style: none;
+    padding: 5px;
+    color: gold;
+    text-decoration: none;
+}
+
 .link-flex-responsive {
     list-style: none;
     padding: 5px;
@@ -74,7 +81,13 @@
     color: white;
     padding: 3px;
     text-decoration: none;
+}
+
+.link-phone-mark {
+    list-style: none;
     color: gold;
+    padding: 3px;
+    text-decoration: none;
 }
 
 .link:hover {

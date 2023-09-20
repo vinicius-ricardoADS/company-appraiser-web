@@ -61,22 +61,26 @@ const HeaderAdmin = ({ windowSize, isOpen, toggleDropdown }: HeaderResponsivePro
                             {isOpen && (
                                 <ul className={classes['dropdown-menu-flex']}>
                                     <li className={classes.li}>
-                                        <a className={classes['link-phone']} href='#'>
+                                        <a className={window.location.pathname === '/users' ? 
+                                        classes['link-phone-mark'] : classes['link-phone']} href='#'>
                                             Usuários
                                         </a>
                                     </li>
                                     <li className={classes.li}>
-                                        <a className={classes['link-phone']} href='#'>
+                                        <a className={window.location.pathname === '/users' ? 
+                                        classes['link-phone-mark'] : classes['link-phone']} href='#'>
                                             Relatórios
                                         </a>
                                     </li>
                                     <li className={classes.li}>
-                                        <a className={classes['link-phone']} href='#'>
+                                        <a className={window.location.pathname === '/companys' ? 
+                                        classes['link-phone-mark'] : classes['link-phone']} href='#'>
                                             Empresas
                                         </a>
                                     </li>
                                     <li className={classes.li}>
-                                        <a className={classes['link-phone']} href='#'>
+                                        <a className={window.location.pathname === '/products' ? 
+                                        classes['link-phone-mark'] : classes['link-phone']} href='#'>
                                             Produtos
                                         </a>
                                     </li>
@@ -94,22 +98,26 @@ const HeaderAdmin = ({ windowSize, isOpen, toggleDropdown }: HeaderResponsivePro
                         </div>
                         <ul className={classes['ul-flex']}>
                             <li className={classes.li}>
-                                <a className={classes['link-flex']} href='#'>
+                                <a className={window.location.pathname === '/users' ? 
+                                classes['link-flex-mark'] : classes['link-flex']} href='#'>
                                     Usuários
                                 </a>
                             </li>
                             <li className={classes.li}>
-                                <a className={classes['link-flex']} href='#'>
+                                <a className={window.location.pathname === '/reports' ? 
+                                classes['link-flex-mark'] : classes['link-flex']} href='#'>
                                     Relatórios
                                 </a>
                             </li>
                             <li className={classes.li}>
-                                <a className={classes['link-flex']} href='#'>
+                                <a className={window.location.pathname === '/companys' ? 
+                                classes['link-flex-mark'] : classes['link-flex']} href='#'>
                                     Empresas
                                 </a>
                             </li>
                             <li className={classes.li}>
-                                <a className={classes['link-flex']} href='/products'>
+                                <a className={window.location.pathname === '/products' ? 
+                                classes['link-flex-mark'] : classes['link-flex']} href='/products'>
                                     Produtos
                                 </a>
                             </li>

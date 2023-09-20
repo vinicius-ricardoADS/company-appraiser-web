@@ -1,5 +1,11 @@
+import Header from "../../components/Header/Header";
+
 const Products = () => {
-    return <h1>Ola</h1>
+    return (
+        <>
+            <Header />
+        </>
+    )
 };
 
 export default Products;
