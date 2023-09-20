@@ -10,6 +10,13 @@ export interface FormProps {
     selected: string;
 }
 
+export interface FormPropsProduct {
+    model: string;
+    description: string;
+    discount_value: string;
+    company_id: string;
+}
+
 export interface FormErrorsProps {
     invalidEmail: boolean;
     invalidEmailRegister: boolean;
@@ -20,6 +27,14 @@ export interface FormErrorsProps {
     invalidCpfRegister: boolean;
     invalidNameRegister: boolean;
     invalidRelationship: boolean;
+}
+
+export interface FormErrorsProductsProps {
+    invalidModel: boolean;
+    invalidDescription: boolean;
+    invalidDiscountValue: boolean;
+    invalidCompany: boolean;
+    invalidImage: boolean;
 }
 
 export interface SetFormProps {

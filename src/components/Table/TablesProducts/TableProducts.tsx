@@ -16,7 +16,7 @@ const TableProducts = () => {
                 Authorization: `Bearer ${token}`
             }
         }).then((res) => setProducts(res.data));
-    }, [products, token]);
+    }, [token]);
 
     return (
         <>
@@ -33,7 +33,7 @@ const TableProducts = () => {
                         products.map((product) => (
                             <tr key={product.id}>
                                 <td>{product.model}</td>
-                                <td>{product.company_name}</td>
+                                <td>{product.company}</td>
                                 <td>
                                     <button>Editar</button>
                                     <button>Remover</button>

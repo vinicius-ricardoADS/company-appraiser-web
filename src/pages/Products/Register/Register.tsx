@@ -9,7 +9,6 @@ const RegisterProduct = () => {
         <>
             <Header />
             <div className={classes.container}>
-                <h3>Produto</h3>
                 <FormRegisterProduct />
             </div>
             <Footer />
