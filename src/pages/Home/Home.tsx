@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <>
             <Header />
-            <Container>
+            <Container home={true}>
                 <Card />
                 <Form />
             </Container>

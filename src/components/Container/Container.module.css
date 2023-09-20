@@ -9,6 +9,18 @@
     left: 0;
 }
 
+.container-view  {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: -260px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
 @media screen and (max-width: 360px) {
     .container {
         display: flex;

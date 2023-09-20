@@ -1,0 +1,23 @@
+.btn-add-product {
+    height: 36px;
+    border-style: none;
+    background-color: gold;
+    width: 131px;
+    color: black;
+    border-radius: 0.5rem;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.btn-add-product:hover {
+    background-color: rgb(59, 227, 140);
+    cursor: pointer;
+}
+
+.link-register-product {
+    list-style: none;
+    color: black;
+    border-style: none;
+    text-decoration: none;
+}

@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import { FormErrorsProps, PropsFormLoginOrRegister } from '../../types/form';
-import FormRegister from './FormRegister/FormRegister';
+import FormRegister from './FormRegisterUser/FormRegisterUser';
 import FormLogin from './FormLogin/FormLogin';
 import useForm from '../../utils/useForm';
 import { User } from '../../types/User';

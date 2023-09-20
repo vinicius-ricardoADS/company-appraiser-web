@@ -1,0 +1,21 @@
+.table {
+    text-align: center;
+    border-collapse: collapse;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+th {
+    padding: 10px;
+    width: 272px;
+    background-color: lightgray;
+}
+
+th, td {
+    border: 1px solid;
+}
+
+td {
+    height: 43px;
+}

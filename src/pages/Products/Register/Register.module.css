@@ -1,0 +1,14 @@
+.container {
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 560px;
+    top: 19%;
+    bottom: 0;
+    right: 30%;
+    left: 30%;
+    border-radius: 1.5rem;
+}

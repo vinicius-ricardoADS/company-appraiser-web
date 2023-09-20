@@ -1,6 +1,6 @@
 import { PropsFormLoginOrRegister } from "../../../types/form";
 
-const FormRegister = ({
+const FormRegisterUser = ({
     onSubmit,
     onChange,
     form,
@@ -72,4 +72,4 @@ const FormRegister = ({
     );
 };
 
-export default FormRegister;
+export default FormRegisterUser;
