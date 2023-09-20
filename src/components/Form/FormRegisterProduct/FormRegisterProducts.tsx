@@ -6,9 +6,13 @@ import Cookies from 'js-cookie';
 
 import classes from './FormRegisterProduct.module.css';
 import { Product } from '../../../types/Product';
+import swal from '../../../lib/swal';
+import { useNavigate } from 'react-router-dom';
 
 
 const FormRegisterProduct = () => {
+
+    const navigate = useNavigate();
 
     const [form, setForm] = useState<FormPropsProduct>({
         model: '',
@@ -107,11 +111,23 @@ const FormRegisterProduct = () => {
             })
 
             if (response.status === 200) {
-                await axios.post('http://localhost:3333/upload', formData, {
+                const responseImage = await axios.post('http://localhost:3333/upload', formData, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
                 });
+
+                if (responseImage.status === 200) {
+                    swal.fire({
+                        title: 'Sucesso!',
+                        icon: 'success',
+                        text: 'Produto cadastrado',
+                        timer: 2000,
+                        showConfirmButton: false,
+                    });
+
+                    navigate('/products');
+                }
             }
 
         } else {

@@ -84,6 +84,15 @@ const HeaderAdmin = ({ windowSize, isOpen, toggleDropdown }: HeaderResponsivePro
                                             Produtos
                                         </a>
                                     </li>
+                                    {window.location.pathname !== '/evaluations' ? (
+                                        <li className={classes.li}>
+                                            <a className={classes['link-phone']} href='/evaluations'>
+                                                Avaliar
+                                            </a>
+                                        </li>
+                                    ) : (
+                                        null
+                                    )}
                                 </ul>
                             )}
                         </div>
@@ -121,6 +130,15 @@ const HeaderAdmin = ({ windowSize, isOpen, toggleDropdown }: HeaderResponsivePro
                                     Produtos
                                 </a>
                             </li>
+                            {window.location.pathname !== '/evaluations' ? (
+                                <li className={classes.li}>
+                                    <a className={classes['link-flex']} href='/evaluations'>
+                                        Avaliar
+                                    </a>
+                                </li>
+                            ) : (
+                                null
+                            )}
                         </ul>
                     </div>
                 </header>
