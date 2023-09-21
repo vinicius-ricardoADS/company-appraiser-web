@@ -10,6 +10,7 @@ import { isAuthenticated } from './utils/auth';
 import Evaluation from './pages/Evaluation/Evaluation';
 import Products from './pages/Products/Products';
 import RegisterProduct from './pages/Products/Register/Register';
+import Company from './pages/Companys/Company';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -20,6 +21,8 @@ const router = createBrowserRouter(
             <Route path='/products/register' element={isAuthenticated() ? <RegisterProduct /> : <Navigate to='/' />} />
             <Route path='/products/register/:id' element={isAuthenticated() ? <RegisterProduct /> : <Navigate to='/' />} />
             <Route path='/products/details/:id' element={isAuthenticated() ? <RegisterProduct /> : <Navigate to='/' />} />
+            <Route path='/companys' element={isAuthenticated() ? <Company /> : <Navigate to='/' />} />
+            <Route path='/companys/details/:id' element={isAuthenticated() ? <RegisterProduct /> : <Navigate to='/' />} />
         </Route>
     )
 );
