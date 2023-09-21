@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react';
 import { Product } from '../../../types/Product';
 import Cookies from 'js-cookie';
-import { Pencil, Trash2, PlusSquare } from 'lucide-react';
+import { Trash2, PlusSquare } from 'lucide-react';
 import axios from 'axios';
 import classes from './TableProducts.module.css';
 import swal from '../../../lib/swal';
+import { useNavigate } from 'react-router-dom';
 
 const TableProducts = () => {
 
     const [products, setProducts] = useState<Product[]>([]);
+
+    const navigate = useNavigate();
 
     const token = Cookies.get('token');
 
@@ -27,7 +30,7 @@ const TableProducts = () => {
                     <tr>
                         <th className={classes.th}>Modelo</th>
                         <th className={classes.th}>Empresa</th>
-                        <th className={classes.th} colSpan={3}>Opções</th>
+                        <th className={classes.th} colSpan={2}>Opções</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,10 +39,6 @@ const TableProducts = () => {
                             <tr key={product.id}>
                                 <td>{product.model}</td>
                                 <td>{product.company}</td>
-                                <td>
-                                    <Pencil
-                                    />
-                                </td>
                                 <td>
                                     <Trash2
                                         color='red'
@@ -68,6 +67,10 @@ const TableProducts = () => {
                                 </td>
                                 <td>
                                     <PlusSquare
+                                        color='blue'
+                                        onClick={() => {
+                                            navigate(`/products/details/${product.id}`)
+                                        }}
                                     />
                                 </td>
                             </tr>

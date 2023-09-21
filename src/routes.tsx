@@ -18,6 +18,8 @@ const router = createBrowserRouter(
             <Route path='/evaluations' element={isAuthenticated() ? <Evaluation /> : <Navigate to='/' />} />
             <Route path='/products' element={isAuthenticated() ? <Products /> : <Navigate to='/' />} />
             <Route path='/products/register' element={isAuthenticated() ? <RegisterProduct /> : <Navigate to='/' />} />
+            <Route path='/products/register/:id' element={isAuthenticated() ? <RegisterProduct /> : <Navigate to='/' />} />
+            <Route path='/products/details/:id' element={isAuthenticated() ? <RegisterProduct /> : <Navigate to='/' />} />
         </Route>
     )
 );

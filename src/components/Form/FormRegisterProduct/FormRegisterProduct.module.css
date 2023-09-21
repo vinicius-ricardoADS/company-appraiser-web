@@ -69,6 +69,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    background-color: #b2bdb9;
+    border-radius: 1.5rem;
+    height: 550px;
+    width: 430px;
 }
 
 .h2 {
@@ -81,6 +85,12 @@
     border-radius: 0.5rem;
     border-style: none;
     background-color: #65d965;
+}
+
+.btn-save:hover {
+    background-color: #33238b;
+    color: white;
+    cursor: pointer;
 }
 
 .file {
