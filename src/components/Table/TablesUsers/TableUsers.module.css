@@ -1,0 +1,32 @@
+.table, td {
+    text-align: center;
+    border-collapse: collapse;
+    border: 1px solid;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+th {
+    padding: 10px;
+    width: 272px;
+    height: 29px;
+    background-color: lightgray;
+}
+
+tr {
+    background-color: rgb(189, 184, 184);
+}
+
+td {
+    height: 58px;
+    width: 125px;
+}
+
+tbody tr:nth-child(even){
+    background-color: rgba(235, 236, 236, 0.555);
+}
+
+tbody tr:hover {
+    background-color: rgba(195, 199, 199, 0.555);
+}
