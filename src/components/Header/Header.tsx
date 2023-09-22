@@ -62,7 +62,7 @@ const HeaderAdmin = ({ windowSize, isOpen, toggleDropdown }: HeaderResponsivePro
                                 <ul className={classes['dropdown-menu-flex']}>
                                     <li className={classes.li}>
                                         <a className={window.location.pathname === '/users' ? 
-                                        classes['link-phone-mark'] : classes['link-phone']} href='#'>
+                                        classes['link-phone-mark'] : classes['link-phone']} href='/users'>
                                             Usuários
                                         </a>
                                     </li>
@@ -108,7 +108,7 @@ const HeaderAdmin = ({ windowSize, isOpen, toggleDropdown }: HeaderResponsivePro
                         <ul className={classes['ul-flex']}>
                             <li className={classes.li}>
                                 <a className={window.location.pathname === '/users' ? 
-                                classes['link-flex-mark'] : classes['link-flex']} href='#'>
+                                classes['link-flex-mark'] : classes['link-flex']} href='/users'>
                                     Usuários
                                 </a>
                             </li>
