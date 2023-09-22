@@ -13,7 +13,7 @@ const Company = () => {
                 <div style={{marginBottom: '50px', marginLeft: '600px'}}>
                     <a className={classes['link-register-company']} href="/companys/register">
                         <button className={classes['btn-add-company']}>
-                            Adicionar produto
+                            Adicionar empresa
                         </button>
                     </a>
                 </div>

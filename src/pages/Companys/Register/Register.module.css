@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 560px;
+    top: 19%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}

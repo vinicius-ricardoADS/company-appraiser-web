@@ -1,0 +1,94 @@
+.input-container {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.label-float label{
+    pointer-events: none;
+    position: absolute;
+    margin-left: 15px;
+    top: 0;
+    left: 0;
+    margin-top: 15px;
+    transition: all .3s ease-out;
+}
+
+.label-float input:focus + label,
+.label-float input:not(:placeholder-shown) + label{
+  font-size: 13px;
+  margin-top: 0;
+  border-color: none;
+}
+
+.invalid-input {
+    outline: none;
+    width: 307px;
+    height: 51px;
+    border-radius: 8px;
+    background-color: #EFF3F8;
+    border-color: red;
+}
+
+.input-register {
+    width: 302px;
+    height: 51px;
+    outline: none;
+    border-style: none;
+    border-radius: 8px;
+    background-color: #EFF3F8;
+    font-family: Roboto Flex;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0px;
+    text-align: left;
+    padding-left: 12px;
+}
+
+.select {
+    height: 47px;
+    width: 315px;
+    font-family: 'Roboto';
+    text-align: center;
+    border-radius: 0.5rem;
+    font-size: 14px;
+    border-style: none;
+    outline: none;
+    font-weight: 500;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #b2bdb9;
+    border-radius: 1.5rem;
+    height: 456px;
+    width: 430px;
+}
+
+.h2 {
+    margin-bottom: 30px;
+}
+
+.btn-save {
+    height: 36px;
+    width: 119px;
+    border-radius: 0.5rem;
+    border-style: none;
+    background-color: #65d965;
+}
+
+.btn-save:hover {
+    background-color: #33238b;
+    color: white;
+    cursor: pointer;
+}

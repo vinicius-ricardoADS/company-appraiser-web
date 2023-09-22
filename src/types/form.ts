@@ -17,6 +17,11 @@ export interface FormPropsProduct {
     company_id: string;
 }
 
+export interface FormPropsCompany {
+    name: string;
+    segment: string;
+}
+
 export interface FormErrorsProps {
     invalidEmail: boolean;
     invalidEmailRegister: boolean;
@@ -35,6 +40,11 @@ export interface FormErrorsProductsProps {
     invalidDiscountValue: boolean;
     invalidCompany: boolean;
     invalidImage: boolean;
+}
+
+export interface FormErrorsCompanyProps {
+    invalidName: boolean;
+    invalidSegment: boolean;
 }
 
 export interface SetFormProps {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
-import { Trash2, PlusSquare } from 'lucide-react';
+import { Trash2, PlusSquare, Pencil } from 'lucide-react';
 import axios from 'axios';
 import classes from './TableCompany.module.css';
 import swal from '../../../lib/swal';
@@ -30,7 +30,7 @@ const TableCompanys = () => {
                     <tr>
                         <th className={classes.th}>Modelo</th>
                         <th className={classes.th}>Empresa</th>
-                        <th className={classes.th} colSpan={2}>Opções</th>
+                        <th className={classes.th} colSpan={3}>Opções</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,6 +39,14 @@ const TableCompanys = () => {
                             <tr key={company.id}>
                                 <td>{company.name}</td>
                                 <td>{company.segment}</td>
+                                <td>
+                                    <Pencil
+                                        color='blue'
+                                        onClick={() => {
+                                            navigate(`/companys/register/${company.id}`)
+                                        }} 
+                                    />
+                                </td>
                                 <td>
                                     <Trash2
                                         color='red'
