@@ -52,24 +52,36 @@ const TableCompanys = () => {
                                         color='red'
                                         onClick={async (e) => {
                                             e.preventDefault();
-                                            await axios.delete(`http://localhost:3333/company/${company.id}`, {
-                                                headers: {
-                                                    Authorization: `Bearer ${token}`
-                                                }
-                                            });
-                                            swal.fire({
-                                                title: 'Sucesso!',
-                                                icon: 'success',
-                                                text: 'Empresa removida',
-                                                timer: 2000,
-                                                showConfirmButton: false,
-                                            });
-                                            await axios.get('http://localhost:3333/company', {
-                                                headers: {
-                                                    Authorization: `Bearer ${token}`
-                                                }
-                                            })
-                                            .then((res) => setCompanys(res.data));
+                                            if (company.products!.length > 0) {
+                                                swal.fire({
+                                                    title: 'Erro!',
+                                                    icon: 'warning',
+                                                    text: 'Empresa possui produtos',
+                                                    timer: 3000,
+                                                    showConfirmButton: false,
+                                                });
+                                            } else {
+                                                await axios.delete(`http://localhost:3333/company/${company.id}`, {
+                                                    headers: {
+                                                        Authorization: `Bearer ${token}`
+                                                    }
+                                                });
+                                                
+                                                swal.fire({
+                                                    title: 'Sucesso!',
+                                                    icon: 'success',
+                                                    text: 'Empresa removida',
+                                                    timer: 2000,
+                                                    showConfirmButton: false,
+                                                });
+
+                                                await axios.get('http://localhost:3333/company', {
+                                                    headers: {
+                                                        Authorization: `Bearer ${token}`
+                                                    }
+                                                })
+                                                .then((res) => setCompanys(res.data));
+                                            }
                                         }}
                                     />
                                 </td>
