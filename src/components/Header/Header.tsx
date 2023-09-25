@@ -67,8 +67,8 @@ const HeaderAdmin = ({ windowSize, isOpen, toggleDropdown }: HeaderResponsivePro
                                         </a>
                                     </li>
                                     <li className={classes.li}>
-                                        <a className={window.location.pathname === '/users' ? 
-                                        classes['link-phone-mark'] : classes['link-phone']} href='#'>
+                                        <a className={window.location.pathname === '/reports' ? 
+                                        classes['link-phone-mark'] : classes['link-phone']} href='/reports'>
                                             Relatórios
                                         </a>
                                     </li>
@@ -114,7 +114,7 @@ const HeaderAdmin = ({ windowSize, isOpen, toggleDropdown }: HeaderResponsivePro
                             </li>
                             <li className={classes.li}>
                                 <a className={window.location.pathname === '/reports' ? 
-                                classes['link-flex-mark'] : classes['link-flex']} href='#'>
+                                classes['link-flex-mark'] : classes['link-flex']} href='/reports'>
                                     Relatórios
                                 </a>
                             </li>

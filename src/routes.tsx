@@ -13,6 +13,7 @@ import RegisterProduct from './pages/Products/Register/Register';
 import Company from './pages/Companys/Company';
 import RegisterCompany from './pages/Companys/Register/Register';
 import Users from './pages/Users/Users';
+import Reports from './pages/Reports/Reports';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
             <Route path='/companys/register/:id' element={isAuthenticated() ? <RegisterCompany /> : <Navigate to='/' />} />
             <Route path='/companys/details/:id' element={isAuthenticated() ? <RegisterCompany /> : <Navigate to='/' />} />
             <Route path='/users' element={isAuthenticated() ? <Users /> : <Navigate to='/' />} />
+            <Route path='/reports' element={isAuthenticated() ? <Reports /> : <Navigate to='/' />} />
         </Route>
     )
 );
