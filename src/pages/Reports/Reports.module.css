@@ -1,0 +1,38 @@
+.input-container {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.select {
+    height: 37px;
+    width: 206px;
+    font-family: 'Roboto';
+    text-align: center;
+    border-radius: 0.5rem;
+    font-size: 14px;
+    border-style: none;
+    outline: none;
+    font-weight: 500;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.btn-report:hover {
+    background-color: rgb(59, 227, 140);
+    cursor: pointer;
+}
+
+.btn-report {
+    height: 36px;
+    border-style: none;
+    background-color: gold;
+    width: 131px;
+    color: black;
+    border-radius: 0.5rem;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+}
