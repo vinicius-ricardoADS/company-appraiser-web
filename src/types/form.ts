@@ -22,6 +22,20 @@ export interface FormPropsCompany {
     segment: string;
 }
 
+export interface FormPropsEvaluation {
+    score: string;
+    preferences: string;
+    would_buy: string;
+    product_id: string;
+}
+
+export interface FormPropsErrorsEvaluation {
+    invalidScore: boolean;
+    invalidPreferences: boolean;
+    invalidWouldBuy: boolean;
+    invalidProduct: boolean;
+}
+
 export interface FormErrorsProps {
     invalidEmail: boolean;
     invalidEmailRegister: boolean;

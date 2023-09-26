@@ -7,6 +7,7 @@ import Cookies from "js-cookie";
 import Footer from "../../../components/Footer/Footer";
 import Header from "../../../components/Header/Header";
 import classes from './Register.module.css';
+import FormRegisterEvaluation from "../../../components/Form/FormRegisterEvaluation/FormRegisterEvaluation";
 
 const RegisterEvaluation = () => {
 
@@ -39,6 +40,7 @@ const RegisterEvaluation = () => {
                         </div>
                     </div>
                 </div>
+                <FormRegisterEvaluation />
             </div>
             <Footer />
         </>

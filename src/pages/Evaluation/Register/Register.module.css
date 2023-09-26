@@ -39,11 +39,12 @@
 .card-detail {
     position: absolute;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    top: 102px;
+    top: 32px;
     justify-content: center;
     left: 0;
     right: 0;
     border-radius: 8px;
-    height: 454px;
+    height: 100%;
 }
