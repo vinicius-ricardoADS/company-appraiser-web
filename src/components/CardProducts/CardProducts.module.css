@@ -1,0 +1,87 @@
+.card {
+    width: 409px;
+    border-radius: 8px;
+    height: 455px;
+}
+
+.block-card {
+    border: 1px solid #e6dbdb;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: rgb(234 234 234);
+    border-radius: 8px;
+}
+
+.img-card {
+    width: 407px;
+    background-color: white;
+    height: 273px;
+    border-bottom: 1px solid beige;
+}
+
+.title-card {
+    font-size: 20px;
+    font-family: 'Roboto';
+    font-weight: 500;
+    color: #3A4F9A;
+}
+
+.expand {
+    font-size: 18px;
+    font-family: 'Roboto';
+    font-weight: 700;
+    color: black;
+    margin-top: 7px;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    line-height: 20px;
+    overflow: hidden;
+}
+
+p.description {
+    font-size: 13px;
+    font-family: 'Roboto';
+    font-weight: 300;
+    color: #575757;
+    margin-top: 7px;
+}
+
+.block-card div {
+    padding: 20px;
+}
+
+.expand-button {
+    appearance: none;
+    border: none;
+    margin-top: 17px;
+    background-color: #d7d7d7;
+    font-family: Roboto;
+    height: 31px;
+    border-radius: 0.5rem;
+    width: 85px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;
+    color: darkblue;
+    margin-left: 80%;
+    cursor: pointer;
+}
+
+.expand-button:hover {
+    background-color: rgb(207, 207, 207);
+}
+
+.product {
+    margin: 35px;
+    display: flex;
+    flex-wrap: wrap;
+    right: 0;
+    top: 80px;
+    left: 0;
+    height: 774px;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+}
