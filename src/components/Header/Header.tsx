@@ -31,7 +31,16 @@ const HeaderUser = () => {
                         <img src={brand} alt='' className={classes.img} />
                         <h3 className={classes.h3}>Company Appraiser</h3>
                     </div>
-                    <ul className={classes.ul}>
+                    <ul className={classes['ul-flex']}>
+                        {window.location.pathname !== '/evaluations' ? (
+                            <li className={classes.li}>
+                                <a className={classes['link-phone']} href='/evaluations'>
+                                    Produtos
+                                </a>
+                            </li>
+                        ) : (
+                            null
+                        )}
                         <li className={classes.li}>
                             <a onClick={() => {
                                 Cookies.remove('token');
