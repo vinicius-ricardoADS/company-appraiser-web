@@ -80,7 +80,12 @@
     list-style: none;
     color: white;
     padding: 3px;
+    cursor: pointer;
     text-decoration: none;
+}
+
+.link-phone:hover {
+    color: gold;
 }
 
 .link-phone-mark {

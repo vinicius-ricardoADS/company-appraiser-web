@@ -33,7 +33,10 @@ const HeaderUser = () => {
                     </div>
                     <ul className={classes.ul}>
                         <li className={classes.li}>
-                            <a className={classes.link} href='#'>
+                            <a onClick={() => {
+                                Cookies.remove('token');
+                                window.location.reload();
+                            }} className={classes.link} href='/'>
                                 Sair
                             </a>
                         </li>
@@ -80,7 +83,7 @@ const HeaderAdmin = ({ windowSize, isOpen, toggleDropdown }: HeaderResponsivePro
                                     </li>
                                     <li className={classes.li}>
                                         <a className={window.location.pathname === '/products' ? 
-                                        classes['link-phone-mark'] : classes['link-phone']} href='#'>
+                                        classes['link-phone-mark'] : classes['link-phone']} href='/products'>
                                             Produtos
                                         </a>
                                     </li>
@@ -93,6 +96,14 @@ const HeaderAdmin = ({ windowSize, isOpen, toggleDropdown }: HeaderResponsivePro
                                     ) : (
                                         null
                                     )}
+                                    <li className={classes.li}>
+                                        <a onClick={() => {
+                                            Cookies.remove('token');
+                                            window.location.reload();
+                                        }} className={classes['link-phone']}>
+                                            Sair
+                                        </a>
+                                    </li>
                                 </ul>
                             )}
                         </div>
@@ -139,6 +150,14 @@ const HeaderAdmin = ({ windowSize, isOpen, toggleDropdown }: HeaderResponsivePro
                             ) : (
                                 null
                             )}
+                            <li className={classes.li}>
+                                <a onClick={() => {
+                                    Cookies.remove('token');
+                                    window.location.reload();
+                                }} className={classes['link-phone']}>
+                                    Sair
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </header>
