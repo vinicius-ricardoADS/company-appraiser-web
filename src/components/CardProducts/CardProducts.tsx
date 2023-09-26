@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 import axios from 'axios';
 
 import classes from './CardProducts.module.css';
+import { Navigate } from 'react-router-dom';
 
 const CardProducts = () => {
 
@@ -19,22 +20,22 @@ const CardProducts = () => {
         }).then((res) => setProducts(res.data));
     }, [token]);
 
-    console.log(products);
-
     return (
         <> 
             <div className={classes.product}>
                 {products.length > 0 ? (
                     products.map((product) => (
                         <div key={product.id} >
-                            <a className="anchorPost">
+                            <a href={`/evaluations/register/${product.id}`} className={classes.anchorPost}>
                                 <div className={classes.card} style={{margin: '35px'}}>
                                     <div className={classes['block-card']}>
                                         <img className={classes['img-card']} src={product.imageUrl} alt="" />
                                         <div>
                                             <h2 className={classes['title-card']}>{product.model}</h2>
                                             <p className={classes['expand']}>{product.description}</p>
-                                            <button className={classes['expand-button']}>Avaliar</button>
+                                            <button onClick={() => {
+                                                <Navigate to={`/evaluations/register/${product.id}`}/>
+                                            }} className={classes['expand-button']}>Avaliar</button>
                                         </div>
                                     </div>
                                 </div>

@@ -14,12 +14,14 @@ import Company from './pages/Companys/Company';
 import RegisterCompany from './pages/Companys/Register/Register';
 import Users from './pages/Users/Users';
 import Reports from './pages/Reports/Reports';
+import RegisterEvaluation from './pages/Evaluation/Register/Register';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route>
             <Route path='/' element={isAuthenticated() ? <Evaluation /> : <Home />}/>
             <Route path='/evaluations' element={isAuthenticated() ? <Evaluation /> : <Navigate to='/' />} />
+            <Route path='/evaluations/register/:id' element={isAuthenticated() ? <RegisterEvaluation /> : <Navigate to='/' />} />
             <Route path='/products' element={isAuthenticated() ? <Products /> : <Navigate to='/' />} />
             <Route path='/products/register' element={isAuthenticated() ? <RegisterProduct /> : <Navigate to='/' />} />
             <Route path='/products/register/:id' element={isAuthenticated() ? <RegisterProduct /> : <Navigate to='/' />} />
