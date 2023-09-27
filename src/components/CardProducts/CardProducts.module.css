@@ -54,13 +54,12 @@ p.description {
 }
 
 .block-card div {
-    padding: 20px;
+    padding: 15px;
 }
 
 .expand-button {
     appearance: none;
     border: none;
-    margin-top: 17px;
     background-color: #d7d7d7;
     font-family: Roboto;
     height: 31px;
@@ -69,8 +68,7 @@ p.description {
     font-size: 15px;
     font-weight: 700;
     line-height: 20px;
-    color: darkblue;
-    margin-left: 80%;
+    color: rebeccapurple;
     cursor: pointer;
 }
 
@@ -85,8 +83,22 @@ p.description {
     right: 0;
     top: 80px;
     left: 0;
-    height: 774px;
+    height: 1080px;
     position: absolute;
     align-items: center;
     justify-content: center;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.discount {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;
+    color: rebeccapurple;
+    font-family: Roboto;
 }

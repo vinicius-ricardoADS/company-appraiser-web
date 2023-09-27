@@ -33,9 +33,12 @@ const CardProducts = () => {
                                         <div>
                                             <h2 className={classes['title-card']}>{product.model}</h2>
                                             <p className={classes['expand']}>{product.description}</p>
-                                            <button onClick={() => {
-                                                <Navigate to={`/evaluations/register/${product.id}`}/>
-                                            }} className={classes['expand-button']}>Avaliar</button>
+                                            <div className={classes.flex}>
+                                                <p className={classes.discount}>Desconto de {product.discount_value}%</p>
+                                                <button onClick={() => {
+                                                    <Navigate to={`/evaluations/register/${product.id}`}/>
+                                                }} className={classes['expand-button']}>Avaliar</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
