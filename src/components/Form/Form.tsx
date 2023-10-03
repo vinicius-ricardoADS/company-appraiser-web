@@ -11,6 +11,7 @@ import useForm from '../../utils/useForm';
 import { User } from '../../types/User';
 import { ResponseHttpLogin } from '../../types/responseLogin';
 import { useNavigate } from 'react-router-dom';
+import swal from '../../lib/swal';
 
 type BodyFormLogin = {
     email: string;
@@ -65,6 +66,8 @@ const Form = () => {
     const [recoverPassword, setRecoverPassword] = useState(false);
 
     const { form, setForm } = useForm();
+
+    const [user, setUser] = useState<User>();
 
     const [isRegister, setIsRegister] = useState(false);
 
@@ -201,8 +204,9 @@ const Form = () => {
             const response = await axios.post('http://localhost:3333/users', body);
 
             if (response.status === 200) setIsRegister(false);
-        } else {
+        }
 
+        if (!recoverPassword) {
             if (form.email.trim() === '' && form.password.trim() === '') {
                 setErrors((prevState) => ({
                     ...prevState,
@@ -231,7 +235,7 @@ const Form = () => {
                 const { token }: ResponseHttpLogin = response.data;
 
                 Cookies.set('token', token);
-                
+                    
                 navigate('/evaluations');
 
                 window.location.reload();
@@ -272,7 +276,32 @@ const Form = () => {
                                 }
                             </div>
                             <div className={classes['flex-button']}>
-                                <button className={classes['btn-signin']}>
+                                <button onClick={async () => {
+                                    if (form.email.trim() !== '') {
+                                        axios.get(`http://localhost:3333/users/${form.email}`)
+                                        .then((res) => setUser(res.data));
+
+                                        if (user) {
+                                            const newPassword = user.name.split(' ')[0] + user.cpf.split('')[3];
+
+                                            const body = {
+                                                password: newPassword,
+                                            }
+
+                                            const response = await axios.put(`http://localhost:3333/users/${user.id}`, body);
+
+                                            if (response.status === 200) {
+                                                swal.fire({
+                                                    title: 'Recuperação de senha',
+                                                    icon: 'info',
+                                                    text: `Sua nova senha agora é ${newPassword}`,
+                                                    timer: 5000,
+                                                    showConfirmButton: true,
+                                                });
+                                            }
+                                        }
+                                    }
+                                }} className={classes['btn-signin']}>
                                     <span className={classes['signin-description']}>
                                         Enviar código
                                     </span> 
