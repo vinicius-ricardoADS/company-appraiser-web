@@ -13,6 +13,12 @@
     justify-content: space-around;
 }
 
+.flex-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .img {
     height: 107px;
 }
@@ -54,6 +60,10 @@
     color: white;
     text-decoration: none;
     margin: 12px;
+}
+
+.link-info {
+    display: none;
 }
 
 .link-flex {

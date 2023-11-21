@@ -282,7 +282,7 @@ const Form = () => {
                                         .then((res) => setUser(res.data));
 
                                         if (user) {
-                                            const newPassword = user.name.split(' ')[0] + user.cpf.split('')[3];
+                                            const newPassword = user.name.toLowerCase().split(' ')[0] + user.cpf.split('')[3];
 
                                             const body = {
                                                 password: newPassword,

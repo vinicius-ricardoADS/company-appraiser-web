@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { AlignJustify } from 'lucide-react';
 import Cookies from 'js-cookie';
 import jwtDecode from 'jwt-decode';
-import brand from '../../assets/brand.ico';
+import brand from '../../assets/brand.png';
 import classes from './Header.module.css';
 import axios from 'axios';
 import { User } from '../../types/User';
@@ -196,7 +196,7 @@ const HeaderLogin = ({ windowSize, isOpen, toggleDropdown }: HeaderResponsivePro
         <>
             {windowSize ? (
                 <header className={classes.header}>
-                    <div className={classes.flex}>
+                    <div className={classes['flex-login']}>
                         <div className={classes.flex}>
                             <img src={brand} alt='' className={classes.img} />
                             <h3 className={classes.h3}>Company Appraiser</h3>
@@ -208,7 +208,7 @@ const HeaderLogin = ({ windowSize, isOpen, toggleDropdown }: HeaderResponsivePro
                             {isOpen && (
                                 <ul className={classes['dropdown-menu']}>
                                     <li className={classes['li-info']}>
-                                        <a className={classes['link-phone']} href='#'>
+                                        <a className={classes['link-info']} href='#'>
                                             Informações
                                         </a>
                                     </li>
@@ -219,14 +219,14 @@ const HeaderLogin = ({ windowSize, isOpen, toggleDropdown }: HeaderResponsivePro
                 </header>
             ) : (
                 <header className={classes.header}>
-                    <div className={classes.flex}>
+                    <div className={classes['flex-login']}>
                         <div className={classes.flex}>
                             <img src={brand} alt='' className={classes.img} />
                             <h3 className={classes.h3}>Company Appraiser</h3>
                         </div>
                         <ul className={classes.ul}>
                             <li className={classes.li}>
-                                <a className={classes.link} href='#'>
+                                <a className={classes['link-info']} href='#'>
                                     Informações
                                 </a>
                             </li>
